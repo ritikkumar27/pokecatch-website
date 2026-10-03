@@ -75,8 +75,6 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
 .encounter-progress span { display: block; height: 100%; border-radius: 5px; background: var(--blue); }
 .encounter-footer { margin-top: 8px; color: #95a0b1; font: .64rem "DM Mono", monospace; }
 .encounter-footer strong { color: var(--blue); font-weight: 500; }
-.floating-command { position: absolute; left: 9%; bottom: 7%; z-index: 6; padding: 9px 12px; border-radius: 0; background: var(--navy); color: #fff; font-size: .68rem; box-shadow: 5px 5px 0 rgba(255,255,255,.52); transform: rotate(4deg); }
-.floating-command pre { padding: 0; }
 
 .proof-strip { display: grid; grid-template-columns: repeat(4, 1fr); width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 27px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .proof-item { display: flex; align-items: baseline; justify-content: center; gap: 10px; border-right: 1px solid var(--line); }
@@ -278,7 +276,6 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
   .encounter-name { font-size: 1.2rem; margin-top: 13px; }
   .sticker-top { top: 23px; left: 22px; }
   .sticker-bottom { right: 17px; bottom: 24px; }
-  .floating-command { left: 7%; bottom: 6%; font-size: .59rem; }
   .proof-strip { grid-template-columns: repeat(2, 1fr); gap: 18px 0; }
   .proof-item:nth-child(2) { border-right: 0; }.proof-item:nth-child(-n+2) { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
   .proof-item:nth-child(odd) { justify-content: flex-start; padding-left: 2px; }.proof-item:nth-child(even) { justify-content: flex-end; padding-right: 2px; }
