@@ -13,6 +13,7 @@ test('Astro output contains the approved landing page sections', () => {
   for (const text of ['Hunt in Wild.', 'Hunt. Catch.', 'Generate the encounter', 'Resolve the catch', 'Check your Pokédex', 'Rarity, rewards', 'ENCOUNTER DISTRIBUTION', '03A / Ball economy', 'STORE DATA', 'CATCH MATH', 'PROGRESSION / CUMULATIVE XP', 'Every command in your kit.', 'GENERAL SYNTAX', 'Installation guide', 'From zero to your first encounter.', 'pipx ensurepath', 'pokecatch --help', 'pokecatch inventory', 'pokecatch store', 'pokecatch hunt']) {
     assert.match(html, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
+  assert.match(html, /href="https:\/\/github\.com\/ritikkumar27\/pokecatch_cli_game"/);
 });
 
 test('Astro output includes local asset URLs and bundled scripts', () => {

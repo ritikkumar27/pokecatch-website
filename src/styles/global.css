@@ -31,6 +31,8 @@ code, .mono, .mockup-code, .eyebrow, .micro-note, .ball-stat, .proof-item strong
 .nav-links { gap: 7px; color: var(--muted); font-size: .84rem; font-weight: 500; }
 .nav-links a:hover { color: var(--blue); background: transparent; }
 .nav-cta { border-radius: 0; font-size: .72rem; }
+.github-link { display: inline-flex; align-items: center; gap: 5px; color: var(--ink); font: .72rem "DM Mono", monospace; text-decoration: none; }
+.github-link:hover { color: var(--blue); }
 .mobile-menu { width: min(1180px, calc(100% - 48px)); margin-inline: auto; padding: 8px 0 18px; border-top: 1px solid var(--line); }
 .mobile-menu a { display: block; padding: 12px 0; color: var(--muted); text-decoration: none; font-weight: 500; }
 .mobile-menu a:hover { color: var(--blue); }
