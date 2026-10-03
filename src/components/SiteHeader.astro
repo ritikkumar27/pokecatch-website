@@ -1,5 +1,6 @@
 ---
 import Brand from './Brand.astro';
+import { repositoryUrl } from '../data/site';
 ---
 
 <header class="site-nav-wrap">
@@ -14,7 +15,7 @@ import Brand from './Brand.astro';
     </div>
     <div class="navbar-end gap-2">
       <a href="#get-started" class="btn btn-outline btn-sm nav-cta">Install</a>
-      <a class="github-link" href="https://github.com/ritikkumar27/pokecatch_cli_game" target="_blank" rel="noreferrer" aria-label="Open PokéCatch CLI Game on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+      <a class="github-link" href={repositoryUrl} target="_blank" rel="noreferrer" aria-label="Open PokéCatch CLI Game on GitHub">GitHub <span aria-hidden="true">↗</span></a>
       <button id="menu-toggle" class="btn btn-ghost btn-square lg:hidden" type="button" aria-label="Open menu" aria-expanded="false">
         <span class="menu-icon" aria-hidden="true">☰</span>
       </button>

@@ -1,6 +1,7 @@
 ---
 import { commands } from '../../data/commands';
 import { installationSteps } from '../../data/installation';
+import { repositoryUrl } from '../../data/site';
 ---
 
 <section id="get-started" class="page-section install-section">
@@ -10,6 +11,7 @@ import { installationSteps } from '../../data/installation';
       <h2>Small setup.<br /><em>Big collection.</em></h2>
       <p>PokéCatch runs locally on Python 3.12+. Install it with pipx, then start with a clean inventory and 50 Poké Balls.</p>
       <div class="install-notes"><span>✓ Python 3.12+</span><span>✓ Saves to <code>~/.pokecatch</code></span><span>✓ Open source game loop</span></div>
+      <a class="install-repo-link" href={repositoryUrl} target="_blank" rel="noreferrer">Get the game on GitHub <span aria-hidden="true">↗</span></a>
     </div>
     <div class="install-terminal mockup-code">
       <pre data-prefix="$"><code>pipx install pokecatch-cli-game</code></pre>
@@ -74,6 +76,6 @@ import { installationSteps } from '../../data/installation';
         </tbody>
       </table>
     </div>
-    <p class="command-note">Catch accepts canonical ball names or lowercase aliases such as <code>pb</code>, <code>net</code>, and <code>mb</code>. Parser errors reject unknown arguments and invalid purchase quantities.</p>
+    <p class="command-note">Catch accepts canonical ball names or lowercase aliases such as <code>pb</code>, <code>net</code>, and <code>mb</code>. Parser errors reject unknown arguments and invalid purchase quantities. <a class="command-repo-link" href={repositoryUrl} target="_blank" rel="noreferrer">Open the source repository on GitHub ↗</a></p>
   </div>
 </section>

@@ -14,6 +14,9 @@ test('Astro output contains the approved landing page sections', () => {
     assert.match(html, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
   assert.match(html, /href="https:\/\/github\.com\/ritikkumar27\/pokecatch_cli_game"/);
+  assert.match(html, /Get the game on GitHub/);
+  assert.match(html, /Open the source repository on GitHub/);
+  assert.match(html, /GitHub repository/);
 });
 
 test('Astro output includes local asset URLs and bundled scripts', () => {
