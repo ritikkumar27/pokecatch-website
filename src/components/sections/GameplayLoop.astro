@@ -1,32 +1,36 @@
+---
+import { assetPath } from '../../utils/assets';
+---
+
 <section id="how-it-works" class="page-section loop-section">
   <div class="section-heading split-heading">
     <div>
-      <div class="eyebrow">01 / The loop</div>
-      <h2>Three commands.<br /><em>One growing collection.</em></h2>
+      <div class="eyebrow">01 / The actual loop</div>
+      <h2>Hunt. Catch.<br /><em>Check your dex.</em></h2>
     </div>
-    <p>Every session is short, deliberate, and saved between invocations. Make a choice, see what the wild gives back, then decide what stays.</p>
+    <p>PokéCatch runs one command at a time. Find a pending wild Pokémon, resolve the encounter with a ball, then inspect the collection that remains saved between invocations.</p>
   </div>
   <div class="steps-grid">
     <article class="step-card card">
       <div class="step-number">01</div>
-      <div class="step-icon icon-radar">◌</div>
-      <h3>Hunt the unknown</h3>
-      <p>Run <code>hunt</code> to generate one wild encounter. A successful hunt grants 5 XP and replaces the pending encounter.</p>
-      <div class="step-foot"><span class="badge badge-soft">15 second cooldown</span></div>
+      <div class="step-icon"><img src={assetPath('assets/sprites/bulbasaur.png')} alt="Bulbasaur sprite" /></div>
+      <h3>Generate the encounter</h3>
+      <p>Run <code>pokecatch hunt</code> to create or replace one pending wild Pokémon, whether that turns up Bulbasaur or another species. A successful hunt grants 5 XP.</p>
+      <div class="step-foot"><span class="badge badge-soft">15s between successful hunts</span></div>
     </article>
     <article class="step-card card step-featured">
       <div class="step-number">02</div>
-      <div class="step-icon icon-ball">◉</div>
-      <h3>Choose your angle</h3>
-      <p>Pick a ball that fits the moment. Type, speed, time of day, ownership, and stats can all change the odds.</p>
-      <div class="step-foot"><span class="badge badge-soft">11 ball types</span></div>
+      <div class="step-icon"><img src={assetPath('assets/sprites/pikachu.png')} alt="Pikachu sprite" /></div>
+      <h3>Resolve the catch</h3>
+      <p>Use <code>pokecatch catch &lt;ball&gt;</code>—for example <code>catch pb</code> or <code>catch net</code>. One available ball is spent and the encounter ends on either outcome.</p>
+      <div class="step-foot"><span class="badge badge-soft">pb · net · mb aliases</span></div>
     </article>
     <article class="step-card card">
       <div class="step-number">03</div>
-      <div class="step-icon icon-star">✦</div>
-      <h3>Build your dex</h3>
-      <p>Catch to earn XP, unlock better supplies, and see your collection grow. Sell surplus catches when you need a refill.</p>
-      <div class="step-foot"><span class="badge badge-soft">local save file</span></div>
+      <div class="step-icon"><img src={assetPath('assets/sprites/mew.png')} alt="Mew sprite" /></div>
+      <h3>Check your Pokédex</h3>
+      <p>Run <code>pokecatch pokedex</code> or its <code>dex</code> alias. Try <code>dex "Pikachu"</code>, filter by type or rarity, or page through 20 unique species.</p>
+      <div class="step-foot"><span class="badge badge-soft">pokedex = dex</span></div>
     </article>
   </div>
 </section>

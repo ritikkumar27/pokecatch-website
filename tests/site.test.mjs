@@ -10,7 +10,7 @@ const htmlPath = join(dist, 'index.html');
 test('Astro output contains the approved landing page sections', () => {
   assert.ok(existsSync(htmlPath), 'run pnpm build before pnpm test');
   const html = readFileSync(htmlPath, 'utf8');
-  for (const text of ['Catch the moment.', 'Three commands.', 'Bring the right', 'Some stories are', 'Small setup.', 'pokecatch hunt']) {
+  for (const text of ['Hunt in Wild.', 'Hunt. Catch.', 'Generate the encounter', 'Resolve the catch', 'Check your Pokédex', 'Rarity, rewards', 'ENCOUNTER DISTRIBUTION', '03A / Ball economy', 'STORE DATA', 'CATCH MATH', 'PROGRESSION / CUMULATIVE XP', 'pokecatch hunt']) {
     assert.match(html, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
 });
@@ -18,6 +18,9 @@ test('Astro output contains the approved landing page sections', () => {
 test('Astro output includes local asset URLs and bundled scripts', () => {
   const html = readFileSync(htmlPath, 'utf8');
   assert.match(html, /assets\/sprites\/pikachu\.png/);
+  for (const sprite of ['bulbasaur', 'pikachu', 'mew']) {
+    assert.match(html, new RegExp(`assets/sprites/${sprite}\\.png`), `missing ${sprite} loop sprite`);
+  }
   for (const alias of ['pb', 'gb', 'ub', 'net', 'dive', 'fast', 'dusk', 'nest', 'repeat', 'quick', 'mb']) {
     assert.match(html, new RegExp(`class="badge">${alias}<`), `missing ${alias} ball`);
   }
@@ -26,6 +29,9 @@ test('Astro output includes local asset URLs and bundled scripts', () => {
   }
   assert.equal((html.match(/<article class="ball-card card"/g) || []).length, 11);
   for (const value of ['Lv 8 · 300', '3.5× for Water', '3× at Speed ≥120; otherwise 2× at Speed ≥80', 'Lv 25 · 50,000', '2.5×']) {
+    assert.match(html, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+  for (const value of ['50%','40%','30%','20%','10%','5%','2%','1,000','2,000','1–999 per command','25,000','11,757 XP','level_bonus','base_rate']) {
     assert.match(html, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
   for (let id = 1; id <= 17; id += 1) {

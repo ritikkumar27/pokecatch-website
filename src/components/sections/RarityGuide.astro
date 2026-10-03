@@ -1,23 +1,108 @@
 ---
+import { balls } from '../../data/balls';
 import { rarities } from '../../data/rarities';
+import { saleValues, storeRules } from '../../data/store';
+import { levelThresholds } from '../../data/progression';
+import { assetPath } from '../../utils/assets';
 ---
 
 <section class="rarity-section">
   <div class="page-section rarity-inner">
-    <div class="rarity-copy">
-      <div class="eyebrow">03 / The chase</div>
-      <h2>Some stories are<br /><em>harder to find.</em></h2>
-      <p>Hunts choose a rarity tier first, then a species from that tier. A Common encounter is not just more likely—it also has more species in its pool.</p>
-      <a href="#get-started" class="text-link light-link">Learn the commands <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="rarity-chart" aria-label="Encounter rarity weights">
-      {rarities.map((rarity) => (
-        <div class="rarity-row">
-          <span class="rarity-label"><i class:list={['rarity-dot', rarity.className]}></i>{rarity.name}</span>
-          <div class="rarity-track"><span style={`width: ${rarity.weight * 2}%`}></span></div>
-          <strong>{rarity.weight}%</strong>
+    <div class="rarity-top">
+      <div class="rarity-copy">
+        <div class="eyebrow">03 / The chase</div>
+        <h2>Rarity, rewards<br /><em>&amp; resources.</em></h2>
+        <p>Each hunt rolls a rarity tier first, then selects one species uniformly from that tier. These are the configured encounter weights and progression rewards—not a promise that one specific Pokémon has the full tier percentage.</p>
+        <a href="#get-started" class="text-link light-link">Learn the commands <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="distribution-panel" aria-label="Rarity distribution and encounter rewards">
+        <div class="data-panel-kicker">ENCOUNTER DISTRIBUTION / RARITY ROLL</div>
+        <div class="data-table-scroll">
+          <table class="data-table rarity-table">
+            <thead>
+              <tr><th>Tier</th><th>Distribution</th><th>Base catch</th><th>Catch XP</th><th>New-entry XP</th></tr>
+            </thead>
+            <tbody>
+              {rarities.map((rarity) => (
+                <tr>
+                  <th scope="row"><span class="rarity-label"><i class:list={['rarity-dot', rarity.className]}></i>{rarity.name}</span></th>
+                  <td><div class="rarity-distribution"><div class="rarity-track"><span style={`width: ${rarity.weight * 2}%`}></span></div><strong>{rarity.weight}%</strong></div></td>
+                  <td>{rarity.baseCatch}</td>
+                  <td>{rarity.catchXp}</td>
+                  <td>{rarity.newEntryXp.toLocaleString('en-US')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      ))}
+        <p class="data-panel-note">Weights total 100%. A particular Common species is <code>0.50 / 325</code>, not 50%.</p>
+      </div>
+    </div>
+
+    <div class="economy-heading">
+      <div>
+        <div class="eyebrow">03A / Ball economy</div>
+        <h3>Store items &amp; catch multipliers</h3>
+      </div>
+      <p><code>STORE_ITEMS</code> controls the displayed prices and purchase costs. Unlocks restrict buying; a ball already in inventory can still be used by catch logic.</p>
+    </div>
+
+    <div class="economy-panel" aria-label="Ball economy store items">
+      <div class="data-table-scroll">
+        <table class="data-table economy-table">
+          <thead>
+            <tr><th>Ball</th><th>Alias</th><th>Unlock</th><th>Price</th><th>Catch multiplier</th></tr>
+          </thead>
+          <tbody>
+            {balls.map((ball) => (
+              <tr>
+                <th scope="row"><span class="economy-ball"><img src={assetPath(`assets/balls/${ball.image}.png`)} alt="" />{ball.name}</span></th>
+                <td><code>{ball.alias}</code></td>
+                <td>Lv {ball.unlockLevel}</td>
+                <td>{ball.price.toLocaleString('en-US')}</td>
+                <td>{ball.multiplier}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="store-data-grid">
+      <div class="store-panel" aria-label="Store sale values">
+        <div class="data-panel-kicker">STORE DATA / SALE VALUES</div>
+        <div class="data-table-scroll">
+          <table class="data-table sale-table">
+            <thead><tr><th>Rarity</th><th>Currency per catch</th></tr></thead>
+            <tbody>
+              {saleValues.map((sale) => <tr><th scope="row">{sale.rarity}</th><td>{sale.value.toLocaleString('en-US')}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="store-panel">
+        <div class="data-panel-kicker">STORE DATA / TRANSACTION RULES</div>
+        <dl class="store-rules">
+          {storeRules.map((rule) => <div><dt>{rule.label}</dt><dd>{rule.value}</dd></div>)}
+        </dl>
+      </div>
+    </div>
+
+    <div class="progression-grid">
+      <div class="store-panel catch-math-panel">
+        <div class="data-panel-kicker">CATCH MATH / CONFIGURED FORMULA</div>
+        <pre class="formula-block"><code>level_bonus = min(level × 0.01, 0.25)
+chance = min(base_rate × ball_multiplier
+  × (1 + level_bonus), 1.0)</code></pre>
+        <p class="data-panel-note">Level 1 contributes 1%; the bonus caps at 25% at level 25. Conditional balls return to 1× when their condition is not met.</p>
+      </div>
+      <div class="store-panel">
+        <div class="data-panel-kicker">PROGRESSION / CUMULATIVE XP</div>
+        <div class="level-grid">
+          {levelThresholds.map((threshold) => <span><strong>Lv {threshold.level}</strong><small>{threshold.xp.toLocaleString('en-US')} XP</small></span>)}
+        </div>
+      </div>
     </div>
   </div>
 </section>
