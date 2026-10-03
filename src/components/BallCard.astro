@@ -14,8 +14,8 @@ const { ball } = Astro.props;
   </div>
   <div class="ball-info">
     <div class="ball-top"><h3>{ball.name}</h3><span class="badge">{ball.alias}</span></div>
-    <p>{ball.description}</p>
-    <div class="ball-stat"><span>{ball.priceLabel}</span><strong>{ball.price}</strong></div>
+    <p>{ball.effect}</p>
+    <div class="ball-stat"><span>Unlock / price</span><strong>Lv {ball.unlockLevel} · {ball.price.toLocaleString('en-US')}</strong></div>
     <div class="ball-stat"><span>Catch multiplier</span><strong>{ball.multiplier}</strong></div>
   </div>
 </article>

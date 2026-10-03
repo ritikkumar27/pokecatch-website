@@ -18,7 +18,16 @@ test('Astro output contains the approved landing page sections', () => {
 test('Astro output includes local asset URLs and bundled scripts', () => {
   const html = readFileSync(htmlPath, 'utf8');
   assert.match(html, /assets\/sprites\/pikachu\.png/);
-  assert.match(html, /assets\/balls\/master-ball\.png/);
+  for (const alias of ['pb', 'gb', 'ub', 'net', 'dive', 'fast', 'dusk', 'nest', 'repeat', 'quick', 'mb']) {
+    assert.match(html, new RegExp(`class="badge">${alias}<`), `missing ${alias} ball`);
+  }
+  for (const image of ['poke-ball', 'great-ball', 'ultra-ball', 'net-ball', 'dive-ball', 'fast-ball', 'dusk-ball', 'nest-ball', 'repeat-ball', 'quick-ball', 'master-ball']) {
+    assert.match(html, new RegExp(`assets/balls/${image}\\.png`), `missing ${image} asset`);
+  }
+  assert.equal((html.match(/<article class="ball-card card"/g) || []).length, 11);
+  for (const value of ['Lv 8 · 300', '3.5× for Water', '3× at Speed ≥120; otherwise 2× at Speed ≥80', 'Lv 25 · 50,000', '2.5×']) {
+    assert.match(html, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
   const assets = readdirSync(join(dist, '_astro'));
   assert.match(html, /<script type="module">/, 'Astro should emit the browser script');
   assert.ok(assets.some((file) => file.endsWith('.css')), 'Astro should bundle CSS');

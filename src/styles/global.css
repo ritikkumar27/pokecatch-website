@@ -125,6 +125,11 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
 .ball-visual.dive { background: #e2f5f3; }
 .ball-visual.dusk { background: #e7e4fa; }
 .ball-visual.net { background: #e8f4dc; }
+.ball-visual.ultra { background: #e9e5fb; }
+.ball-visual.fast { background: #ffe6d3; }
+.ball-visual.nest { background: #e5f1d8; }
+.ball-visual.repeat { background: #f2e3d3; }
+.ball-visual.quick { background: #e5f0fb; }
 .ball-visual.master { background: #f8e2f0; }
 .ball-visual img { width: 66px; height: 66px; object-fit: contain; image-rendering: pixelated; transition: transform .25s ease; }
 .ball-card:hover .ball-visual img { transform: scale(1.12) rotate(8deg); }
