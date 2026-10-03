@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Hero from '../components/sections/Hero.astro';
+import CollectionFacts from '../components/sections/CollectionFacts.astro';
+import GameplayLoop from '../components/sections/GameplayLoop.astro';
+import BallGuide from '../components/sections/BallGuide.astro';
+import RarityGuide from '../components/sections/RarityGuide.astro';
+import GetStarted from '../components/sections/GetStarted.astro';
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main id="top">
+    <Hero />
+    <CollectionFacts />
+    <GameplayLoop />
+    <BallGuide />
+    <RarityGuide />
+    <GetStarted />
+  </main>
+  <SiteFooter />
+</BaseLayout>

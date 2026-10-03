@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
 :root {
   --ink: #17233d;
   --muted: #68738b;

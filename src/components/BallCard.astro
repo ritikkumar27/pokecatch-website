@@ -1,0 +1,21 @@
+---
+import { balls } from '../data/balls';
+import { assetPath } from '../utils/assets';
+
+interface Props {
+  ball: (typeof balls)[number];
+}
+const { ball } = Astro.props;
+---
+
+<article class="ball-card card" data-category={ball.category}>
+  <div class:list={['ball-visual', ball.visual]}>
+    <img src={assetPath(`assets/balls/${ball.image}.png`)} alt={ball.name} />
+  </div>
+  <div class="ball-info">
+    <div class="ball-top"><h3>{ball.name}</h3><span class="badge">{ball.alias}</span></div>
+    <p>{ball.description}</p>
+    <div class="ball-stat"><span>{ball.priceLabel}</span><strong>{ball.price}</strong></div>
+    <div class="ball-stat"><span>Catch multiplier</span><strong>{ball.multiplier}</strong></div>
+  </div>
+</article>

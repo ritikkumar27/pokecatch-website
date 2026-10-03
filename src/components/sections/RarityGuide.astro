@@ -1,0 +1,23 @@
+---
+import { rarities } from '../../data/rarities';
+---
+
+<section class="rarity-section">
+  <div class="page-section rarity-inner">
+    <div class="rarity-copy">
+      <div class="eyebrow">03 / The chase</div>
+      <h2>Some stories are<br /><em>harder to find.</em></h2>
+      <p>Hunts choose a rarity tier first, then a species from that tier. A Common encounter is not just more likely—it also has more species in its pool.</p>
+      <a href="#get-started" class="text-link light-link">Learn the commands <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="rarity-chart" aria-label="Encounter rarity weights">
+      {rarities.map((rarity) => (
+        <div class="rarity-row">
+          <span class="rarity-label"><i class:list={['rarity-dot', rarity.className]}></i>{rarity.name}</span>
+          <div class="rarity-track"><span style={`width: ${rarity.weight * 2}%`}></span></div>
+          <strong>{rarity.weight}%</strong>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

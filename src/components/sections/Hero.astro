@@ -1,0 +1,36 @@
+---
+import { assetPath } from '../../utils/assets';
+---
+
+<section class="hero-shell page-section">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> A terminal collection game</div>
+    <h1>Catch the moment.<br /><em>Keep the story.</em></h1>
+    <p class="hero-lede">PokéCatch turns your terminal into a tiny field guide. Hunt a wild encounter, choose your angle, and grow a collection that stays yours.</p>
+    <div class="hero-actions">
+      <a href="#get-started" class="btn btn-primary btn-lg">Start collecting <span aria-hidden="true">↗</span></a>
+      <a href="#how-it-works" class="text-link">See the loop <span aria-hidden="true">↓</span></a>
+    </div>
+    <p class="micro-note"><span class="terminal-dot"></span> Local-first · no account · no cloud sync</p>
+  </div>
+
+  <div class="hero-stage" aria-label="PokéCatch encounter preview">
+    <div class="stage-grid"></div>
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="hero-sticker sticker-top">WILD<br /><strong>ENCOUNTER</strong></div>
+    <div class="hero-sticker sticker-bottom">ID 025 <span>•</span> RARE SIGHTING</div>
+    <img class="hero-pokemon hero-pikachu" src={assetPath('assets/sprites/pikachu.png')} alt="Pikachu sprite" />
+    <img class="hero-pokemon hero-rayquaza" src={assetPath('assets/sprites/rayquaza.png')} alt="Rayquaza sprite" />
+    <img class="hero-pokemon hero-mew" src={assetPath('assets/sprites/mew.png')} alt="Mew sprite" />
+    <div class="encounter-card card">
+      <div class="encounter-card-head"><span class="status-pill"><span></span> READY</span><span class="mono">#025</span></div>
+      <div class="encounter-name">Pikachu <span class="spark">✦</span></div>
+      <div class="encounter-meta"><span>Electric</span><span>·</span><span>Common</span></div>
+      <div class="encounter-progress"><span style="width: 62%"></span></div>
+      <div class="encounter-footer"><span>catch chance</span><strong>50.5%</strong></div>
+    </div>
+    <div class="floating-command mockup-code">
+      <pre data-prefix="$"><code>pokecatch hunt</code></pre>
+    </div>
+  </div>
+</section>

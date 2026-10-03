@@ -1,0 +1,31 @@
+---
+import Brand from './Brand.astro';
+---
+
+<header class="site-nav-wrap">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <Brand class="navbar-start" label="PokéCatch home" />
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal nav-links">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#ball-guide">Ball guide</a></li>
+        <li><a href="#get-started">Get started</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end gap-2">
+      <a href="#get-started" class="btn btn-outline btn-sm nav-cta">Install free</a>
+      <button id="menu-toggle" class="btn btn-ghost btn-square lg:hidden" type="button" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <a href="#how-it-works">How it works</a>
+    <a href="#ball-guide">Ball guide</a>
+    <a href="#get-started">Get started</a>
+  </div>
+</header>
+
+<script>
+  import '../scripts/navigation';
+</script>

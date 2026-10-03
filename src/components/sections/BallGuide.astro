@@ -1,0 +1,27 @@
+---
+import BallCard from '../BallCard.astro';
+import { balls, ballFilters } from '../../data/balls';
+---
+
+<section id="ball-guide" class="page-section ball-section">
+  <div class="section-heading ball-heading">
+    <div>
+      <div class="eyebrow">02 / The toolkit</div>
+      <h2>Bring the right<br /><em>ball for the story.</em></h2>
+    </div>
+    <p>Specialty balls reward attention. Browse a few of the choices waiting in the store, then use the CLI to make them yours.</p>
+  </div>
+  <div class="filter-row" role="group" aria-label="Filter ball guide">
+    {ballFilters.map((filter) => (
+      <button class:list={['filter-btn', { 'is-active': filter.value === 'all' }]} data-filter={filter.value}>{filter.label}</button>
+    ))}
+  </div>
+  <div class="ball-grid" id="ball-grid">
+    {balls.map((ball) => <BallCard ball={ball} />)}
+  </div>
+  <p id="empty-filter" class="empty-filter" hidden>No balls in this part of the toolkit yet.</p>
+</section>
+
+<script>
+  import '../../scripts/ball-filters';
+</script>
