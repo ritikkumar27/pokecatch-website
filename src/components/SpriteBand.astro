@@ -1,0 +1,24 @@
+---
+import type { PokemonSprite } from '../data/sprites';
+import { assetPath } from '../utils/assets';
+
+interface Props {
+  sprites: PokemonSprite[];
+  label: string;
+  class?: string;
+}
+
+const { sprites, label, class: className = '' } = Astro.props;
+---
+
+<div class:list={['sprite-band', className]} aria-label={label}>
+  <div class="sprite-band-label"><span class="pixel-cursor"></span>{label}</div>
+  <div class="sprite-band-grid">
+    {sprites.map((sprite) => (
+      <div class="sprite-chip">
+        <img src={assetPath(`assets/sprites/${sprite.file}`)} alt={`${sprite.name} sprite`} />
+        <span>{sprite.name}</span>
+      </div>
+    ))}
+  </div>
+</div>

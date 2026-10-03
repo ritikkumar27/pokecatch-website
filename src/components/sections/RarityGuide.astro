@@ -4,6 +4,8 @@ import { rarities } from '../../data/rarities';
 import { saleValues, storeRules } from '../../data/store';
 import { levelThresholds } from '../../data/progression';
 import { assetPath } from '../../utils/assets';
+import { chaseRoster } from '../../data/sprites';
+import SpriteBand from '../SpriteBand.astro';
 ---
 
 <section class="rarity-section">
@@ -39,6 +41,8 @@ import { assetPath } from '../../utils/assets';
         <p class="data-panel-note">Weights total 100%. A particular Common species is <code>0.50 / 325</code>, not 50%.</p>
       </div>
     </div>
+
+    <SpriteBand sprites={chaseRoster} label="THE CHASE / RARE SIGHTINGS" class="chase-sprite-band" />
 
     <div class="economy-heading">
       <div>

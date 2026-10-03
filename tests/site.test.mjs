@@ -21,6 +21,9 @@ test('Astro output includes local asset URLs and bundled scripts', () => {
   for (const sprite of ['bulbasaur', 'pikachu', 'mew']) {
     assert.match(html, new RegExp(`assets/sprites/${sprite}\\.png`), `missing ${sprite} loop sprite`);
   }
+  for (const sprite of ['arceus', 'bulbasaur', 'charmander', 'dragapult', 'dragonite', 'eevee', 'enamorus', 'espeon', 'greninja', 'lucario', 'mew', 'mewtwo', 'mimikyu', 'pecharunt', 'pikachu', 'rayquaza', 'sceptile', 'snorlax', 'squirtle', 'tyranitar']) {
+    assert.match(html, new RegExp(`assets/sprites/${sprite}\\.png`), `missing ${sprite} sprite`);
+  }
   for (const alias of ['pb', 'gb', 'ub', 'net', 'dive', 'fast', 'dusk', 'nest', 'repeat', 'quick', 'mb']) {
     assert.match(html, new RegExp(`class="badge">${alias}<`), `missing ${alias} ball`);
   }

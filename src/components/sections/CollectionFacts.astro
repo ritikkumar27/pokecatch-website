@@ -1,6 +1,8 @@
 ---
 import { assetPath } from '../../utils/assets';
 import { pokemonTypes } from '../../data/types';
+import { fieldGuideRoster } from '../../data/sprites';
+import SpriteBand from '../SpriteBand.astro';
 ---
 
 <section class="proof-strip" aria-label="PokéCatch facts">
@@ -22,4 +24,5 @@ import { pokemonTypes } from '../../data/types';
       </span>
     ))}
   </div>
+  <SpriteBand sprites={fieldGuideRoster} label="FIELD GUIDE / COLLECTOR ROSTER" />
 </section>
