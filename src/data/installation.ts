@@ -1,0 +1,9 @@
+// Player setup flow from Documentation/01-Getting-Started/Installation.md.
+export const installationSteps = [
+  { number: '01', title: 'Check your requirements', body: 'Use Python 3.12 or newer, keep pipx available, and use a Unicode-capable terminal with a writable home directory for ~/.pokecatch.', commands: [] },
+  { number: '02', title: 'Put pipx on PATH', body: 'Install pipx with your operating system package manager, then restart the terminal after this command so its executable directory is available.', commands: ['pipx ensurepath'] },
+  { number: '03', title: 'Install the player', body: 'Choose one source. The local command runs from the folder containing pokecatch_cli_game; the GitHub command installs the remote revision.', commands: ['pipx install --python python3.13 ./pokecatch_cli_game', 'pipx install --python python3.13 git+https://github.com/ritikkumar27/pokecatch_cli_game.git'] },
+  { number: '04', title: 'Verify the command', body: 'Check the top-level command and the key help screens before starting a session.', commands: ['pokecatch --help', 'pokecatch pokedex --help', 'pokecatch dex --help', 'pokecatch store buy --help'] },
+  { number: '05', title: 'Run your first session', body: 'A new player starts at level 1 with 0 currency, 0 XP, and 50 Poké Balls.', commands: ['pokecatch inventory', 'pokecatch hunt', 'pokecatch catch pb', 'pokecatch pokedex', 'pokecatch stats', 'pokecatch store'] },
+  { number: '06', title: 'Optional: editable development install', body: 'For contributors, create a fresh virtual environment inside the game repository and install the checkout in editable mode.', commands: ['cd pokecatch_cli_game', 'python3.13 --version', 'python3.13 -m venv .venv', 'source .venv/bin/activate', 'python -m pip install --upgrade pip setuptools wheel', 'python -m pip install -e .'] },
+] as const;

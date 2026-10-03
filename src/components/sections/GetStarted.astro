@@ -1,5 +1,6 @@
 ---
 import { commands } from '../../data/commands';
+import { installationSteps } from '../../data/installation';
 ---
 
 <section id="get-started" class="page-section install-section">
@@ -18,6 +19,32 @@ import { commands } from '../../data/commands';
       <pre data-prefix=""><code>Catch attempt resolved.</code></pre>
       <div class="terminal-cursor" aria-hidden="true"></div>
     </div>
+  </div>
+
+  <div class="install-guide" aria-label="PokéCatch installation guide">
+    <div class="install-guide-head">
+      <div>
+        <div class="eyebrow">04B / Installation guide</div>
+        <h3>From zero to your first encounter.</h3>
+      </div>
+      <p>Follow the player path in order. The optional editable setup is for development; ordinary play only needs the pipx installation.</p>
+    </div>
+    <ol class="install-steps">
+      {installationSteps.map((step) => (
+        <li class:list={['install-step', { 'install-step-wide': step.number === '05' || step.number === '06' }]}>
+          <span class="install-step-number">{step.number}</span>
+          <div class="install-step-body">
+            <h4>{step.title}</h4>
+            <p>{step.body}</p>
+            {step.commands.length > 0 && (
+              <div class="install-command-list">
+                {step.commands.map((command) => <code class="install-command">$ {command}</code>)}
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
   </div>
 
   <div class="command-reference" aria-label="PokéCatch command reference">

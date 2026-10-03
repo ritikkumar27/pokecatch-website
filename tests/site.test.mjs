@@ -10,7 +10,7 @@ const htmlPath = join(dist, 'index.html');
 test('Astro output contains the approved landing page sections', () => {
   assert.ok(existsSync(htmlPath), 'run pnpm build before pnpm test');
   const html = readFileSync(htmlPath, 'utf8');
-  for (const text of ['Hunt in Wild.', 'Hunt. Catch.', 'Generate the encounter', 'Resolve the catch', 'Check your Pokédex', 'Rarity, rewards', 'ENCOUNTER DISTRIBUTION', '03A / Ball economy', 'STORE DATA', 'CATCH MATH', 'PROGRESSION / CUMULATIVE XP', 'Every command in your kit.', 'GENERAL SYNTAX', 'pokecatch hunt']) {
+  for (const text of ['Hunt in Wild.', 'Hunt. Catch.', 'Generate the encounter', 'Resolve the catch', 'Check your Pokédex', 'Rarity, rewards', 'ENCOUNTER DISTRIBUTION', '03A / Ball economy', 'STORE DATA', 'CATCH MATH', 'PROGRESSION / CUMULATIVE XP', 'Every command in your kit.', 'GENERAL SYNTAX', 'Installation guide', 'From zero to your first encounter.', 'pipx ensurepath', 'pokecatch --help', 'pokecatch inventory', 'pokecatch store', 'pokecatch hunt']) {
     assert.match(html, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
 });
