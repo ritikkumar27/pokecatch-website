@@ -1,3 +1,7 @@
+---
+import { commands } from '../../data/commands';
+---
+
 <section id="get-started" class="page-section install-section">
   <div class="install-card">
     <div class="install-copy">
@@ -14,5 +18,35 @@
       <pre data-prefix=""><code>Catch attempt resolved.</code></pre>
       <div class="terminal-cursor" aria-hidden="true"></div>
     </div>
+  </div>
+
+  <div class="command-reference" aria-label="PokéCatch command reference">
+    <div class="command-reference-head">
+      <div>
+        <div class="eyebrow">04A / Command deck</div>
+        <h3>Every command in your kit.</h3>
+      </div>
+      <p>Run <code>--help</code> at the top level or after a subcommand. PokéCatch is local and stateful: inventory, stats, and store displays load the player save.</p>
+    </div>
+    <div class="command-syntax">
+      <span>GENERAL SYNTAX</span>
+      <code>pokecatch &lt;command&gt; [arguments] [options]</code>
+      <code>python -m pokecatch &lt;command&gt; [arguments] [options]</code>
+    </div>
+    <div class="command-table-wrap">
+      <table class="command-table">
+        <thead><tr><th>Command</th><th>Alias</th><th>Purpose / effects</th></tr></thead>
+        <tbody>
+          {commands.map((item) => (
+            <tr>
+              <th scope="row"><code>pokecatch {item.command}</code></th>
+              <td>{item.alias}</td>
+              <td>{item.purpose}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="command-note">Catch accepts canonical ball names or lowercase aliases such as <code>pb</code>, <code>net</code>, and <code>mb</code>. Parser errors reject unknown arguments and invalid purchase quantities.</p>
   </div>
 </section>

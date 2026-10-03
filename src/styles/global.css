@@ -206,6 +206,25 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
 .install-terminal pre:nth-of-type(3), .install-terminal pre:nth-of-type(5) { color: #8ce4b3; }
 .terminal-cursor { width: 7px; height: 14px; margin-top: 5px; background: var(--yellow); animation: blink 1.1s steps(2, start) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
+.command-reference { margin-top: 68px; padding: 34px 38px; border: 2px solid var(--navy); background: var(--navy); color: #fff; box-shadow: 9px 9px 0 rgba(23,35,61,.14); }
+.command-reference-head { display: flex; align-items: end; justify-content: space-between; gap: 45px; }
+.command-reference-head .eyebrow { color: var(--yellow); }
+.command-reference-head h3 { margin-top: 14px; color: #fff; font-size: 1.55rem; letter-spacing: -.04em; }
+.command-reference-head p { max-width: 405px; color: #acb7cc; font-size: .78rem; line-height: 1.7; }
+.command-reference-head code, .command-note code { color: var(--yellow); }
+.command-syntax { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 20px; margin-top: 28px; padding: 14px 15px; border: 1px dashed rgba(255,255,255,.35); color: #8f9bb1; font: .59rem "DM Mono", monospace; }
+.command-syntax span { color: var(--yellow); letter-spacing: .08em; }
+.command-syntax code { color: #fff; }
+.command-table-wrap { margin-top: 19px; overflow-x: auto; }
+.command-table { width: 100%; min-width: 760px; border-collapse: collapse; font: .61rem "DM Mono", monospace; }
+.command-table th, .command-table td { padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,.13); text-align: left; vertical-align: top; }
+.command-table thead th { color: #8f9bb1; font-size: .54rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.command-table tbody tr:last-child th, .command-table tbody tr:last-child td { border-bottom: 0; }
+.command-table tbody th { width: 28%; color: #fff; font-weight: 500; }
+.command-table tbody th code { color: var(--yellow); white-space: nowrap; }
+.command-table tbody td:nth-child(2) { width: 14%; color: #8ce4b3; }
+.command-table tbody td:nth-child(3) { color: #d1d8e5; line-height: 1.6; }
+.command-note { margin-top: 17px; color: #8f9bb1; font: .58rem/1.6 "DM Mono", monospace; }
 
 .site-footer { display: grid; grid-template-columns: 1.6fr .7fr .95fr 1fr; align-items: start; gap: 40px; padding: 55px max(24px, calc((100% - 1180px) / 2)) 65px; border-top: 1px solid var(--line); background: var(--paper); }
 .footer-brand p, .footer-end p { margin-top: 14px; color: var(--muted); font-size: .7rem; line-height: 1.7; }
@@ -252,7 +271,7 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
   .ball-card { grid-template-columns: 100px 1fr; }
   .rarity-inner { width: min(100% - 32px, 550px); padding-top: 82px; padding-bottom: 82px; }
   .rarity-top { display: block; }.distribution-panel { margin-top: 50px; padding: 20px 12px 16px; }.data-table { font-size: .53rem; }.data-table th, .data-table td { padding-inline: 7px; }.rarity-track { width: 45px; }.economy-heading { display: block; margin-top: 70px; }.economy-heading p { margin-top: 18px; }.economy-panel { padding-inline: 5px; }.store-data-grid, .progression-grid { grid-template-columns: 1fr; }.level-grid { grid-template-columns: repeat(3, 1fr); }
-  .install-card { display: block; padding: 34px 24px; }.install-terminal { margin-top: 35px; padding: 18px; }.install-terminal pre { font-size: .57rem; }
+  .install-card { display: block; padding: 34px 24px; }.install-terminal { margin-top: 35px; padding: 18px; }.install-terminal pre { font-size: .57rem; }.command-reference { margin-top: 50px; padding: 28px 17px; }.command-reference-head { display: block; }.command-reference-head p { margin-top: 20px; }.command-syntax { align-items: flex-start; flex-direction: column; gap: 9px; }
   .site-footer { grid-template-columns: 1fr 1fr; gap: 36px 20px; padding: 42px 16px 50px; }.footer-brand { grid-column: 1 / -1; }.footer-end { justify-self: start; text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }

@@ -10,7 +10,7 @@ const htmlPath = join(dist, 'index.html');
 test('Astro output contains the approved landing page sections', () => {
   assert.ok(existsSync(htmlPath), 'run pnpm build before pnpm test');
   const html = readFileSync(htmlPath, 'utf8');
-  for (const text of ['Hunt in Wild.', 'Hunt. Catch.', 'Generate the encounter', 'Resolve the catch', 'Check your Pokédex', 'Rarity, rewards', 'ENCOUNTER DISTRIBUTION', '03A / Ball economy', 'STORE DATA', 'CATCH MATH', 'PROGRESSION / CUMULATIVE XP', 'pokecatch hunt']) {
+  for (const text of ['Hunt in Wild.', 'Hunt. Catch.', 'Generate the encounter', 'Resolve the catch', 'Check your Pokédex', 'Rarity, rewards', 'ENCOUNTER DISTRIBUTION', '03A / Ball economy', 'STORE DATA', 'CATCH MATH', 'PROGRESSION / CUMULATIVE XP', 'Every command in your kit.', 'GENERAL SYNTAX', 'pokecatch hunt']) {
     assert.match(html, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
 });
@@ -33,6 +33,9 @@ test('Astro output includes local asset URLs and bundled scripts', () => {
   }
   for (const value of ['50%','40%','30%','20%','10%','5%','2%','1,000','2,000','1–999 per command','25,000','11,757 XP','level_bonus','base_rate']) {
     assert.match(html, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+  for (const command of ['hunt', 'catch &lt;ball&gt;', 'pokedex', 'inventory', 'stats', 'store', 'store buy', 'store sell', 'store sellall', 'store sell-dupes']) {
+    assert.match(html, new RegExp(`pokecatch ${command.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`), `missing ${command} command`);
   }
   for (let id = 1; id <= 17; id += 1) {
     assert.match(html, new RegExp(`assets/pokemon-types/${id}\\.png`), `missing type marker ${id}`);
