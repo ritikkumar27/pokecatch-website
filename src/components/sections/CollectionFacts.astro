@@ -1,20 +1,25 @@
 ---
 import { assetPath } from '../../utils/assets';
+import { pokemonTypes } from '../../data/types';
 ---
 
 <section class="proof-strip" aria-label="PokéCatch facts">
-  <div class="proof-item"><strong>1,025</strong><span>species in the database</span></div>
+  <div class="proof-item"><strong>1,025</strong><span>total pokemons</span></div>
   <div class="proof-item"><strong>7</strong><span>rarity tiers to chase</span></div>
-  <div class="proof-item"><strong>15s</strong><span>between successful hunts</span></div>
+  <div class="proof-item"><strong>15s</strong><span>cooldown between hunts</span></div>
   <div class="proof-item"><strong>0</strong><span>accounts or cloud sync</span></div>
 </section>
 
-<section class="type-rail page-section" aria-label="Collection data">
-  <div class="type-rail-label"><span class="pixel-cursor"></span> FIELD GUIDE DATA</div>
-  <div class="type-rail-items">
-    <span><img src={assetPath('assets/pokemon-types/1.png')} alt="Type marker" /> 18 TYPES</span>
-    <span><img src={assetPath('assets/pokemon-types/4.png')} alt="Type marker" /> 9 GENERATIONS</span>
-    <span><img src={assetPath('assets/badges/1.png')} alt="Badge marker" /> ACHIEVEMENT MARK</span>
-    <span class="type-rail-note">YOUR SAVE · YOUR ROUTE</span>
+<section class="type-rail page-section" aria-label="Pokémon type field guide">
+  <div class="type-rail-header">
+    <div class="type-rail-label"><span class="pixel-cursor"></span> POKEMON TYPES</div>
+  </div>
+  <div class="type-grid">
+    {pokemonTypes.map((type) => (
+      <span class:list={['type-item', { 'type-item-missing': !type.image }]}>
+        {type.image ? <img src={assetPath(`assets/pokemon-types/${type.image}`)} alt={`${type.name} type marker`} /> : <span class="type-marker-empty" aria-hidden="true">?</span>}
+        <span>{type.name}</span>
+      </span>
+    ))}
   </div>
 </section>

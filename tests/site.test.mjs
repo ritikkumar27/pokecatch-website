@@ -28,6 +28,12 @@ test('Astro output includes local asset URLs and bundled scripts', () => {
   for (const value of ['Lv 8 · 300', '3.5× for Water', '3× at Speed ≥120; otherwise 2× at Speed ≥80', 'Lv 25 · 50,000', '2.5×']) {
     assert.match(html, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
+  for (let id = 1; id <= 17; id += 1) {
+    assert.match(html, new RegExp(`assets/pokemon-types/${id}\\.png`), `missing type marker ${id}`);
+  }
+  for (const name of ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy']) {
+    assert.match(html, new RegExp(`>${name}<`), `missing ${name} type`);
+  }
   const assets = readdirSync(join(dist, '_astro'));
   assert.match(html, /<script type="module">/, 'Astro should emit the browser script');
   assert.ok(assets.some((file) => file.endsWith('.css')), 'Astro should bundle CSS');
